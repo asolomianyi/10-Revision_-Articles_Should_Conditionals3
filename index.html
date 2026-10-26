@@ -1,0 +1,129 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Revision: Articles and Should / Shouldn’t</title><style>
+:root{--bg:#fbf7f0;--card:#ffffff;--ink:#1f2a37;--muted:#6b7280;--blue:#2f5d8a;--accent:#d9822b;--line:#e6dfd2;color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141a22;--card:#1d2631;--ink:#eef1f5;--muted:#9aa4b2;--blue:#8db6e3;--accent:#f0a259;--line:#2b3644}}
+:root[data-theme="dark"]{--bg:#141a22;--card:#1d2631;--ink:#eef1f5;--muted:#9aa4b2;--blue:#8db6e3;--accent:#f0a259;--line:#2b3644}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:'Trebuchet MS',Arial,sans-serif;display:flex;flex-direction:column}
+.stage{flex:1;min-height:0;position:relative}
+.slide{position:absolute;inset:0;overflow-y:auto;padding:clamp(20px,5vw,72px) clamp(16px,8vw,120px);display:none;flex-direction:column;gap:14px;max-width:1100px;margin:0 auto;width:100%}
+.slide.on{display:flex;animation:in .35s ease}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.tag{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h1{font-size:clamp(32px,6vw,64px);line-height:1.1;color:var(--blue);margin:0}
+h2{font-size:clamp(26px,4.4vw,46px);line-height:1.15;color:var(--blue);margin:0}
+.cover{justify-content:center;gap:20px}
+.lead{font-size:clamp(18px,2.6vw,28px);margin:0}
+.row{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--accent);border-radius:12px;padding:14px 18px}
+.en{margin:0;font-size:clamp(17px,2.2vw,24px);line-height:1.4}
+.ua{margin:4px 0 0;font-size:12px;color:var(--muted);line-height:1.4}
+.sub{margin:0 0 6px}.cover .ua{font-size:13px;margin:0}
+b{color:var(--accent)}
+nav{display:flex;align-items:center;justify-content:center;gap:14px;padding:12px 16px;border-top:1px solid var(--line)}
+button{font:inherit;font-size:16px;background:var(--blue);color:var(--bg);border:0;border-radius:10px;padding:10px 20px;cursor:pointer}
+button:disabled{opacity:.35;cursor:default}
+.dots{display:flex;gap:8px}.dot{width:10px;height:10px;border-radius:50%;background:var(--line);padding:0;border:0}.dot.on{background:var(--accent)}
+.count{font-size:14px;color:var(--muted);min-width:48px;text-align:center}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;align-items:start}
+.card{background:var(--card);border:1px solid var(--line);border-top:6px solid var(--accent);border-radius:12px;padding:14px 18px}
+.card h3{margin:0;font-size:22px;color:var(--blue)}
+.card ul{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:10px}
+.card li{display:flex;flex-direction:column}.card .en{font-size:clamp(15px,1.7vw,18px);line-height:1.35}
+.card .ua,.card li .ua{font-size:12px;color:var(--muted)}.card>.ua{margin:2px 0 0}
+.ex{margin:0;padding-left:28px;display:flex;flex-direction:column;gap:8px;font-size:clamp(16px,1.9vw,20px);line-height:1.9}
+.ex li{padding:4px 12px;border-left:5px solid transparent;border-radius:8px;background:var(--card)}
+.ex li.ok{border-left-color:#2e9d5b}.ex li.ok::after{content:" ✓";color:#2e9d5b;font-weight:700}
+.ex li.bad{border-left-color:#d64545}.ex li.bad::after{content:" ✗";color:#d64545;font-weight:700}
+.ex input{font:inherit;font-size:17px;width:min(190px,42vw);padding:2px 8px;margin:0 4px;border:1px solid var(--line);border-bottom:2px solid var(--blue);border-radius:6px;background:var(--bg);color:var(--ink)}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:6px 0 12px}.score{font-weight:700;color:var(--blue)}
+
+.ex li{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}.ex li .s{flex:1 1 340px}.ex li::after,.ex li.ok::after,.ex li.bad::after{content:none}
+.mini{font-size:14px;padding:4px 14px;border-radius:8px}
+.fb{flex-basis:100%;font-size:15px;line-height:1.4;line-height:1.5}.ok .fb{color:#2e9d5b;font-weight:700}.bad .fb{color:#d64545}.bad .fb .ua{display:block;margin:0;color:var(--muted)}
+.fxs{display:flex;flex-direction:column;gap:12px;margin-top:10px}
+.fx{display:flex;flex-direction:column;gap:6px;padding:10px 12px;border:1px solid var(--line);border-radius:10px}.fx.note{border-style:dashed}
+.k{color:var(--blue);font-size:16px}
+.frow{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.lab{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:2px 8px;border-radius:6px;white-space:nowrap}
+.lab.f{background:var(--blue);color:var(--bg)}.lab.e{background:var(--accent);color:var(--bg)}
+.formula{font-family:Consolas,'Courier New',monospace;font-size:clamp(15px,1.8vw,19px);padding:4px 10px;border-radius:8px;background:var(--bg);border:1px solid var(--blue)}
+.p.s{color:var(--muted)}.p.m{color:var(--accent);font-weight:700}.p.v{color:var(--blue);font-weight:700}
+.exline{display:flex;flex-wrap:wrap;align-items:center;gap:8px}.card li{gap:4px}
+.fx .en{font-style:italic}.exline .en{font-style:italic}
+</style></head><body><div class="stage"><section class="slide "><div class="tag">Page 1</div><h2>Articles: a / an, the, zero (—)</h2><p class="ua sub">Артиклі. Артикль показує, чи йдеться про щось загальне або нове, чи про щось конкретне й відоме.</p><div class="grid"><div class="card"><h3>A / AN</h3><p class="ua">Невизначений артикль. Лише зі злічуваними іменниками в однині; a перед приголосним звуком, an перед голосним.</p><ul><li><span class="en">First mention: <b>a door, a meter, a match</b></span><span class="ua">Предмет чи особа згадуються вперше.</span></li><li><span class="en">Profession: he is <b>an employee</b>, <b>a meter reader</b></span><span class="ua">Професія або ким є людина.</span></li><li><span class="en">Fixed expressions: <b>as a matter of fact</b>; <b>an</b> explosion, <b>an</b> envelope</span><span class="ua">Сталі вирази. Перед голосним звуком вживаємо an.</span></li></ul></div><div class="card"><h3>THE</h3><p class="ua">Визначений артикль. З однина, множина та незлічуваними іменниками.</p><ul><li><span class="en">Mentioned before: I saw a dog. <b>The dog</b> was big.</span><span class="ua">Про предмет чи особу вже йшла мова.</span></li><li><span class="en">Clear from context: <b>the gaspipe</b>, <b>the door</b></span><span class="ua">З контексту зрозуміло, про що йдеться.</span></li><li><span class="en">Ordinals, superlatives: <b>the last house</b>, <b>the first day</b>, <b>the best friend</b></span><span class="ua">Порядкові числівники, вищий і найвищий ступінь.</span></li><li><span class="en">Unique: <b>the owner</b> of the house, <b>the police</b></span><span class="ua">Унікальні у цій ситуації слова.</span></li><li><span class="en"><b>the light of…</b>, <b>the back of…</b>, <b>the time of…</b></span><span class="ua">Конструкції з of.</span></li></ul></div><div class="card"><h3>Zero article (—)</h3><p class="ua">Нульовий артикль. Артикль не потрібен.</p><ul><li><span class="en">General plural: <b>Meter readers</b> usually wear peaked caps.</span><span class="ua">Множина для узагальнення.</span></li><li><span class="en">Possessive with a name: <b>Mr Smith’s house</b></span><span class="ua">Присвійний відмінок із власною назвою.</span></li><li><span class="en">Abstract nouns, fixed expressions: <b>in surprise</b></span><span class="ua">Деякі абстрактні іменники та сталі вирази.</span></li></ul></div></div></section><section class="slide"><div class="tag">Page 2</div><h2>SHOULD / SHOULDN’T</h2><p class="ua sub">Should означає «слід, варто», shouldn’t означає «не слід, не варто». Однакова форма для всіх осіб.</p><div class="grid"><div class="card"><h3>Use</h3><p class="ua">Використання.</p><ul><li><b class="k">Advice</b><span class="exline"><span class="lab e">Example</span><span class="en">You <b>should</b> see a doctor.</span></span><span class="ua">Порада.</span></li><li><b class="k">Advice not to do something</b><span class="exline"><span class="lab e">Example</span><span class="en">You <b>shouldn’t</b> eat so much sugar.</span></span><span class="ua">Порада не робити щось.</span></li><li><b class="k">What is right or wrong</b><span class="exline"><span class="lab e">Example</span><span class="en">We <b>should</b> help our friends.</span></span><span class="ua">Що правильно або доцільно.</span></li><li><b class="k">Asking for advice</b><span class="exline"><span class="lab e">Example</span><span class="en"><b>Should</b> I take an umbrella?</span></span><span class="ua">Прохання про пораду.</span></li></ul></div><div class="card"><h3>Form</h3><p class="ua">Форма. Після should завжди інфінітив без to, без закінчення -s.</p><div class="fxs"><div class="fx"><b class="k">Positive (+)</b><div class="frow"><span class="lab f">Formula</span><span class="formula"><span class="p s">subject</span> + <span class="p m">should</span> + <span class="p v">verb</span></span></div><div class="frow"><span class="lab e">Example</span><span class="en">She <b>should</b> study more.</span></div><span class="ua">Ствердження.</span></div><div class="fx"><b class="k">Negative (−)</b><div class="frow"><span class="lab f">Formula</span><span class="formula"><span class="p s">subject</span> + <span class="p m">shouldn’t</span> + <span class="p v">verb</span></span></div><div class="frow"><span class="lab e">Example</span><span class="en">She <b>shouldn’t</b> be late.</span></div><span class="ua">Заперечення.</span></div><div class="fx"><b class="k">Question (?)</b><div class="frow"><span class="lab f">Formula</span><span class="formula"><span class="p m">Should</span> + <span class="p s">subject</span> + <span class="p v">verb</span>?</span></div><div class="frow"><span class="lab e">Example</span><span class="en"><b>Should</b> she call him?</span></div><span class="ua">Запитання.</span></div><div class="fx note"><span class="en">Always the base verb: no <b>to</b>, no <b>-s</b>. He should go. (not: He should goes)</span></div></div></div></div></section><section class="slide "><div class="tag">Page 3</div><h2>Conditional Sentences (III): Unreal Condition</h2><p class="ua sub">Умовні речення III типу. Нереальна умова.</p><div class="row"><p class="en"><b>Use:</b> an unreal situation in the past. It did not happen, so we only imagine the result. Often we express regret or criticism.</p><p class="ua">Використання. Нереальна ситуація в минулому: це не відбулося, тому результат лише уявний. Часто виражає жаль або докір.</p></div><div class="row"><p class="en"><b>Form:</b> If + Past Perfect (had + V3), would / could / might + have + V3.<br><i>If I had studied, I would have passed the exam.</i></p><p class="ua">Форма. If + Past Perfect, would / could / might + have + V3.</p></div><div class="row"><p class="en"><b>Negative:</b> <i>If she hadn’t left early, she wouldn’t have missed the train.</i></p><p class="ua">Заперечення: hadn’t і wouldn’t have + V3.</p></div><div class="row"><p class="en"><b>Order:</b> either part can go first. Comma only when the if-clause is first: <i>I would have passed if I had studied.</i></p><p class="ua">Порядок. Кома ставиться, лише коли речення починається з if. Реальний факт: I didn’t study, so I didn’t pass.</p></div><div class="row"><p class="en"><b>Remember:</b> never use <i>would</i> in the if-clause. <i>Type 1:</i> If + Present Simple, will + V (real). <i>Type 2:</i> If + Past Simple, would + V (unreal present).</p><p class="ua">Не вживаємо would після if. I тип: If + Present Simple, will + V. II тип: If + Past Simple, would + V.</p></div></section><section class="slide"><div class="tag">Page 4 · Practice 1</div><h2>Third Conditional</h2><p class="ua sub">Постав дієслова в дужках у правильну форму. Лише III тип.</p><ol class="ex" data-ex="0"></ol><div class="bar"><button class="chk">Check all</button><button class="shw">Show answers</button><button class="rst">Reset</button><span class="score" aria-live="polite"></span></div></section><section class="slide"><div class="tag">Page 5 · Practice 2</div><h2>Conditionals 1, 2 and 3</h2><p class="ua sub">Постав дієслово в дужках у правильну форму. Визнач тип речення за змістом.</p><ol class="ex" data-ex="1"></ol><div class="bar"><button class="chk">Check all</button><button class="shw">Show answers</button><button class="rst">Reset</button><span class="score" aria-live="polite"></span></div></section></div><nav><button id="p" aria-label="Previous">← Back</button><div class="dots" id="d"></div><span class="count" id="c"></span><button id="n" aria-label="Next">Next →</button></nav><script>
+const EX=[[
+["If I ___ (know) about the party, I ___ (come).","had known;would have come"],
+["If she ___ (study) harder, she ___ (pass) the exam.","had studied;would have passed"],
+["We ___ (not miss) the bus if we ___ (leave) earlier.","would not have missed;had left"],
+["If it ___ (not rain), we ___ (go) to the beach.","had not rained;would have gone"],
+["If he ___ (listen) to me, he ___ (not make) this mistake.","had listened;would not have made"],
+["They ___ (win) the match if they ___ (play) better.","would have won;had played"],
+["If you ___ (tell) me, I ___ (help) you.","had told;would have helped"],
+["If Anna ___ (not oversleep), she ___ (be) on time.","had not overslept;would have been"],
+["I ___ (buy) the book if I ___ (have) enough money.","would have bought;had had"],
+["If the weather ___ (be) better, we ___ (have) a picnic.","had been;would have had"],
+["She ___ (not get) lost if she ___ (take) a map.","would not have got|would not have gotten;had taken"],
+["If we ___ (see) him, we ___ (say) hello.","had seen;would have said"],
+["If they ___ (invite) me, I ___ (go) to the concert.","had invited;would have gone"],
+["He ___ (not break) the window if he ___ (be) careful.","would not have broken;had been"],
+["If I ___ (not forget) my keys, I ___ (get) into the house.","had not forgotten;would have got|would have gotten"]],[
+["If it rains tomorrow, we ___ (stay) at home.","will stay"],
+["If I had a car, I ___ (drive) to work.","would drive"],
+["If she had called earlier, I ___ (answer).","would have answered"],
+["If you ___ (not hurry), you will miss the train.","do not hurry"],
+["If I ___ (be) you, I would apologize.","were|was"],
+["If they had trained harder, they ___ (win) the game.","would have won"],
+["If he ___ (study) tomorrow, he will pass the test.","studies"],
+["What would you do if you ___ (win) a million?","won"],
+["If we had left earlier, we ___ (not be) late.","would not have been"],
+["She will be happy if you ___ (call) her.","call"],
+["If I ___ (not be) so tired yesterday, I would have gone out.","had not been"],
+["If he lived here, we ___ (see) him every day.","would see"],
+["If I ___ (see) her tomorrow, I will give her your message.","see"],
+["If the road ___ (not be) icy, the accident wouldn’t have happened.","had not been"],
+["If I had more free time, I ___ (learn) Spanish.","would learn"]]];
+const nz=s=>s.toLowerCase().replace(/[’`]/g,"'").replace(/won't/g,"will not").replace(/'ll/g," will").replace(/'d have/g," would have").replace(/n't/g," not").replace(/\s+/g," ").trim();
+function why(u,e){
+const neg=/\bnot\b/;
+if(!u)return ["Fill in this gap.","Заповни пропуск."];
+if(e.startsWith("had")){
+if(/\b(would|will)\b/.test(u))return ["No would / will after if. In type III the if-clause is Past Perfect: had + V3.","Після if не вживаємо would / will. У III типі потрібен Past Perfect: had + V3."];
+if(!/^had\b/.test(u))return ["The if-clause of type III needs Past Perfect: had + V3.","Частина з if у III типі: Past Perfect (had + V3)."]}
+if(/^would (not )?have/.test(e)&&(!/\bwould\b/.test(u)||!/\bhave\b/.test(u)))return ["The main clause of type III needs would + have + V3.","Головна частина III типу: would + have + V3."];
+if(neg.test(e)&&!neg.test(u))return ["This verb must be negative: add not (n’t).","Тут потрібна заперечна форма: додай not (n’t)."];
+if(!neg.test(e)&&neg.test(u))return ["This verb must be affirmative: no “not”.","Тут потрібна ствердна форма, без not."];
+if(e.startsWith("will")&&!/^will\b/.test(u))return ["Type 1 (real future): main clause = will + base verb.","I тип (реальна умова): will + інфінітив."];
+if(/^would (?!have)/.test(e)&&!/^would\b/.test(u))return ["Type 2 (unreal present): main clause = would + base verb.","II тип (нереальна умова): would + інфінітив."];
+if(/^would /.test(e)&&!/have/.test(e)&&/\bhave\b/.test(u))return ["Type 2 uses would + base verb, without have.","II тип: would + інфінітив, без have."];
+if(e==="were"||e==="was")return ["Type 2 if-clause: Past Simple. In “If I were you” use were.","II тип: Past Simple; в «If I were you» вживаємо were."];
+if(e==="won")return ["Type 2 if-clause: Past Simple (won).","II тип: частина з if — Past Simple."];
+if(/^(studies|call|see|do not hurry)$/.test(e))return ["Type 1 if-clause: Present Simple, no will. With he / she / it add -s.","I тип: після if — Present Simple, без will. З he / she / it додаємо -s."];
+return ["Check the verb form (V3 / past participle) and the spelling.","Перевір форму дієслова (V3) та правопис."]}
+document.querySelectorAll('.ex').forEach(ol=>{
+const sl=ol.closest('.slide'),sc=sl.querySelector('.score');
+EX[+ol.dataset.ex].forEach(([t,a])=>{const li=document.createElement('li');li.dataset.a=a;const sp=document.createElement('span');sp.className='s';t.split('___').forEach((p,k,arr)=>{sp.append(p);if(k<arr.length-1){const i=document.createElement('input');i.type='text';i.autocomplete='off';i.autocapitalize='off';i.spellcheck=false;i.setAttribute('aria-label','Gap '+(k+1));sp.append(i)}});
+const bt=document.createElement('button');bt.className='mini';bt.textContent='Check';const fb=document.createElement('div');fb.className='fb';li.append(sp,bt,fb);bt.onclick=()=>{chk(li);total()};ol.append(li)});
+const lis=[...ol.children];
+function chk(li){const g=li.dataset.a.split(';'),fb=li.querySelector('.fb'),ins=[...li.querySelectorAll('input')],bad=[];
+ins.forEach((i,k)=>{const u=nz(i.value),al=g[k].split('|');if(!al.includes(u))bad.push([k,why(u,al[0])])});
+li.className=bad.length?'bad':'ok';fb.innerHTML='';
+if(!bad.length){fb.textContent='✓ Correct!';return}
+bad.forEach(([k,r])=>{const d=document.createElement('div');d.innerHTML='✗ '+(ins.length>1?'Gap '+(k+1)+': ':'')+r[0]+' <span class="ua">'+r[1]+'</span>';fb.append(d)})}
+function total(){const n=lis.filter(l=>l.className==='ok').length,c=lis.filter(l=>l.className).length;sc.textContent=c?'Correct: '+n+' / '+lis.length+' (checked: '+c+')':''}
+sl.querySelector('.chk').onclick=()=>{lis.forEach(chk);total()};
+sl.querySelector('.shw').onclick=()=>{lis.forEach(li=>{const g=li.dataset.a.split(';');li.querySelectorAll('input').forEach((i,k)=>i.value=g[k].split('|')[0]);li.className='ok';li.querySelector('.fb').textContent='✓ Correct answer'});total()};
+sl.querySelector('.rst').onclick=()=>{lis.forEach(li=>{li.className='';li.querySelector('.fb').innerHTML='';li.querySelectorAll('input').forEach(i=>i.value='')});sc.textContent=''};
+});
+</script><script>
+const S=[...document.querySelectorAll('.slide')],P=document.getElementById('p'),N=document.getElementById('n'),D=document.getElementById('d'),C=document.getElementById('c');
+let i=0;
+S.forEach((_,k)=>{const b=document.createElement('button');b.className='dot';b.setAttribute('aria-label','Slide '+(k+1));b.onclick=()=>go(k);D.appendChild(b)});
+function go(k){i=Math.max(0,Math.min(S.length-1,k));S.forEach((s,j)=>s.classList.toggle('on',j===i));[...D.children].forEach((d,j)=>d.classList.toggle('on',j===i));P.disabled=i===0;N.disabled=i===S.length-1;C.textContent=(i+1)+' / '+S.length;S[i].scrollTop=0;try{history.replaceState(null,'','#s'+(i+1))}catch(e){}}
+P.onclick=()=>go(i-1);N.onclick=()=>go(i+1);
+addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')go(i+1);if(e.key==='ArrowLeft')go(i-1)});
+let x0=null;addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
+addEventListener('touchend',e=>{if(x0===null)return;const d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>60)go(i+(d<0?1:-1));x0=null});
+const m=/^#s(\d+)$/.exec(location.hash);go(m?parseInt(m[1])-1:0);
+</script></body></html>
